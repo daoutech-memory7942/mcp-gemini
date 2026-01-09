@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import Btn from './components/Btn'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-8">
@@ -22,12 +21,12 @@ function App() {
         </h1>
         
         <div className="bg-white rounded-lg shadow-xl p-8 mb-6">
-          <button
-            onClick={() => setCount((count) => count + 1)}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
-          >
-            count is {count}
-          </button>
+          <div className="flex flex-col items-center gap-4">
+            <Btn />
+            <Btn toggle={true} />
+            <Btn state="disabled" />
+            <Btn state="disabled" toggle={true}/>
+          </div>
           <p className="mt-4 text-gray-600">
             Edit <code className="bg-gray-100 px-2 py-1 rounded text-sm">src/App.tsx</code> and save to test HMR
           </p>
