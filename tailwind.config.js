@@ -1,5 +1,3 @@
-import tokens from './tailwind.tokens.js';
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -7,10 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      ...tokens,
-    },
+    extend: {},
   },
   plugins: [],
 }
-
