@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+:root {
+  --height-5: 32px;
+  --padding-5: 12px;
+  --radius-medium: 6px;
+  --btn-bg-primary-base: #08a7bf;
+  --btn-bg-primary-hover: #0590a5;
+  --btn-bg-normal-surface-hover: #e7edf4;
+  --btn-border-primary: #08a7bf;
+  --btn-bg-normal-base: white;
+  --btn-border-normal: #a7b9cc;
+  --btn-bg-normal-hover: #e7edf4;
+  --text-neutral-white: white;
+  --btn-text-primary: #08a7bf;
+  --text-neutral-base: #2f353c;
+  --font-size-body-medium: 14px;
+}
