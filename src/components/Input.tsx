@@ -4,21 +4,42 @@ type InputProps = {
 };
 
 export default function Input({ state = "normal", errorMsg = false }: InputProps) {
-  const isErrorAndErrorMsg = state === "error" && errorMsg;
-  const isErrorMsgAndErrorOrHover = (state === "error" && errorMsg) || (state === "hover" && errorMsg);
-  const isHoverAndErrorMsg = state === "hover" && errorMsg;
-  const isHoverAndNotErrorMsg = state === "hover" && !errorMsg;
-  const isNormalAndNotErrorMsg = state === "normal" && !errorMsg;
+  const isError = state === "error";
+  const isHover = state === "hover";
+
+  const getContainerClasses = () => {
+    let classes = "content-stretch flex flex-col items-start relative w-[184px]";
+    if (state === "normal" || (isError && errorMsg)) {
+      classes += " gap-1";
+    }
+    if ((isError || isHover) && errorMsg) {
+      classes += " justify-center";
+    }
+    return classes;
+  };
+
+  const getFormClasses = () => {
+    let classes = "bg-white border border-solid content-stretch flex h-8 items-center overflow-clip px-2 relative rounded-md shrink-0 w-full";
+    if (isError) {
+      classes += " border-[#dc3545] py-0";
+    } else if (isHover) {
+      classes += " border-[#a7b9cc] py-1.5";
+    } else {
+      classes += " border-[#c9d5e1] py-0";
+    }
+    return classes;
+  };
+
   return (
-    <div id={isNormalAndNotErrorMsg ? "node-5674_917" : isHoverAndNotErrorMsg ? "node-5674_924" : isErrorAndErrorMsg ? "node-5674_929" : isHoverAndErrorMsg ? "node-5674_934" : ""} className={`content-stretch flex flex-col items-start relative w-[184px] ${isNormalAndNotErrorMsg ? "gap-[var(--padding/2,4px)]" : isHoverAndNotErrorMsg ? "" : isErrorMsgAndErrorOrHover ? "gap-[var(--padding/2,4px)] justify-center" : ""}`}>
-      <div id={isNormalAndNotErrorMsg ? "node-5674_416" : isHoverAndNotErrorMsg ? "node-5674_925" : isErrorAndErrorMsg ? "node-5674_930" : isHoverAndErrorMsg ? "node-5674_935" : ""} className={`bg-[var(--input/bg/base,white)] border border-solid content-stretch flex h-[32px] items-center overflow-clip px-[var(--padding/4,8px)] relative rounded-[var(--radius/medium,6px)] shrink-0 w-full ${isNormalAndNotErrorMsg ? "border-[var(--input/border/base,#c9d5e1)] py-0" : isHoverAndNotErrorMsg ? "border-[var(--input/border/hover,#a7b9cc)] py-[var(--padding/3,6px)]" : isErrorMsgAndErrorOrHover ? "border-[var(--input/border/error,#dc3545)] py-0" : ""}`} data-name="form">
-        <p id={isNormalAndNotErrorMsg ? "node-5674_417" : isHoverAndNotErrorMsg ? "node-5674_926" : isErrorAndErrorMsg ? "node-5674_931" : isHoverAndErrorMsg ? "node-5674_936" : ""} className={`flex-[1_0_0] font-["Pretendard:Regular",sans-serif] leading-[1.6] min-h-px min-w-px not-italic overflow-hidden relative text-[14px] text-[color:var(--input\/text\/disabled,#a7b9cc)] text-ellipsis whitespace-nowrap`}>
+    <div data-node-id={isError ? "5674-929" : isHover ? "5674-924" : "5674-917"} className={getContainerClasses()}>
+      <div data-node-id={isError ? "5674-930" : isHover ? "5674-925" : "5674-416"} className={getFormClasses()} data-name="form">
+        <p data-node-id={isError ? "5674-931" : isHover ? "5674-926" : "5674-417"} className="flex-1 leading-normal min-h-px min-w-px not-italic overflow-hidden relative text-sm text-[#a7b9cc] text-ellipsis whitespace-nowrap">
           텍스트를 입력해주세요.
         </p>
       </div>
-      {isErrorMsgAndErrorOrHover && (
-        <div id={isErrorAndErrorMsg ? "node-5674_932" : isHoverAndErrorMsg ? "node-5674_937" : ""} className="content-stretch flex items-start relative shrink-0 w-full" data-name="vali_msg">
-          <p id={isErrorAndErrorMsg ? "node-5674_933" : isHoverAndErrorMsg ? "node-5674_938" : ""} className={`font-["Pretendard:Regular",sans-serif] leading-[1.6] not-italic relative shrink-0 text-[color:var(--input\/text\/error,#dc3545)] text-[length:var(--font-size\/body\/medium,14px)]`}>
+      {errorMsg && (isError || isHover) && (
+        <div data-node-id={isError ? "5674-932" : "5674-937"} className="content-stretch flex items-start relative shrink-0 w-full" data-name="vali_msg">
+          <p data-node-id={isError ? "5674-933" : "5674-938"} className="leading-normal not-italic relative shrink-0 text-sm text-[#dc3545]">
             상황에 맞는 메시지를 넣어주세요.
           </p>
         </div>
