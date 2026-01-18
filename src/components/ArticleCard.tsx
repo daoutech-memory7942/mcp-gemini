@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ArticleCard({ title, content, image }) {
   return (
-    <div className="bg-bg-neutral-base content-stretch flex-1 flex-col h-70 items-start min-h-px min-w-px overflow-clip relative rounded-xlarge">
+    <div className="bg-bg-neutral-base content-stretch flex-1 flex-col h-70 items-start min-h-px min-w-px overflow-clip relative rounded-small">
       <div className="bg-[#f2f5f7] content-stretch flex items-center justify-center overflow-clip px-5 py-10 relative shrink-0 w-full">
         <div className="relative shrink-0 size-13">{image}</div>
       </div>
