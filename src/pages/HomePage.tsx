@@ -43,6 +43,18 @@ export default function HomePage() {
           >
             View Components
           </Link>
+          <Link
+            to="/dashboard"
+            className="px-4 py-2 bg-bg-neutral-level1 text-text-neutral-base rounded-medium hover:bg-bg-neutral-level2 transition-colors"
+          >
+            View Dashboard
+          </Link>
+          <Link
+            to="/checkout"
+            className="px-4 py-2 bg-bg-neutral-level1 text-text-neutral-base rounded-medium hover:bg-bg-neutral-level2 transition-colors"
+          >
+            View Checkout
+          </Link>
         </div>
 
         <p className="font-pretendard text-typo-body-medium-regular text-text-neutral-description">
