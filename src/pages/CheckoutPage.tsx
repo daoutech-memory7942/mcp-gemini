@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import {
-  Input,
-  Select,
-  Checkbox,
-  Button,
-  Search,
-} from "../components";
-import Sidebar from "../layouts/Sidebar";
+import { Input, Select, Checkbox, Button } from "../components";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const CheckoutForm = () => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
-  const [membership, setMembership] = useState([]);
   const [phone1, setPhone1] = useState("");
   const [phone2, setPhone2] = useState("");
   const [phone3, setPhone3] = useState("");
@@ -95,25 +88,9 @@ const CheckoutForm = () => {
 };
 
 export default function CheckoutPage() {
-  const [searchValue, setSearchValue] = useState("");
   return (
-    <div className="bg-white content-stretch flex items-start justify-center relative w-full h-screen">
-      <Sidebar />
-      <main className="bg-[#e7e8ec] content-stretch flex-1 flex-col items-start min-h-px min-w-px overflow-clip pb-10 relative self-stretch">
-        <div className="border border-[#d3d6e3] border-solid content-stretch flex items-center justify-between px-6 py-4 relative shrink-0 w-full">
-          <Search
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-          <div className="content-stretch flex gap-2.5 items-start overflow-clip relative shrink-0">
-            <Button type="normal">Button</Button>
-            <Button type="primary">Button</Button>
-          </div>
-        </div>
-        <div className="content-stretch flex flex-col gap-4 items-start justify-center pt-5 px-6 relative shrink-0 w-full">
-          <CheckoutForm />
-        </div>
-      </main>
-    </div>
+    <DashboardLayout>
+      <CheckoutForm />
+    </DashboardLayout>
   );
 }
